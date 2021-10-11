@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import Search from '../Search';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -25,7 +26,9 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li className="nav-bar-container">
-        <NavLink className="nav-bar" exact to="/">Home</NavLink>
+        <NavLink className="nav-bar logo" exact to="/">Uni-Events</NavLink>
+        <Search />
+        <NavLink className="about-nav-bar nav-bar" to="/about-us"> About </NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>
