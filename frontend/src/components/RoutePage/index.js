@@ -6,6 +6,21 @@ import './RoutePage.css';
 
 function RoutePage() {
 
+
+    const data= [
+        { id: 1, eventName: "Halloween Party!"},
+        { id: 2, eventName: "Christmas Bash!"},
+        { id: 3, eventName: "Party at my house"}
+    ]
+    const categories= [
+        { id: 1, categoryName: "Rave"},
+        { id: 2, categoryName: "Party"},
+        { id: 3, categoryName: "Student Groups"},
+        { id: 4, categoryName: "AAPI events"}
+
+    ]
+
+
     return (
         <div className='mainBody'>
             <div className='imagery'>
@@ -17,15 +32,20 @@ function RoutePage() {
 
             <div className='mainEventBody'>
                 <div className='universityName-header'>
-                    University of Washington
+                    University Here
                 </div>
-                <div className='event-categories-nav'>
-                    \\List of events here//
+                <div className='categories-nav'>
+                {categories.map((category) => (
+                        <div className="category">{category.categoryName}</div>
+                    ))}
                 </div>
                 <div className='event-wrapper'>
-                    main event list here
-
+                    {data.map((event) => (
+                        <div className="event">{event.eventName}</div>
+                    ))}
                 </div>
+
+
 
             </div>
         </div>

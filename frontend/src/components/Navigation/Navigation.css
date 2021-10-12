@@ -2,7 +2,9 @@
     display: flex;
     justify-content: center;
     border-bottom: 1px solid black;
-
+    position: fixed;
+    top: 0px;
+    background-color: chocolate;
 }
 
 .nav-bar{

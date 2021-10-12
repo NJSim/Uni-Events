@@ -1,0 +1,37 @@
+.mainBody {
+    padding-top:70px;
+}
+
+.event-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.event {
+    font-size: 50px;
+    width: 350px;
+    height: 450px;
+    border: 2px solid black;
+}
+
+.categories-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.category {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    height: 50px;
+    width: 100px;
+    border-radius: 49%;
+    text-align: center;
+}
