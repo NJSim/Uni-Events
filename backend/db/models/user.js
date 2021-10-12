@@ -32,6 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     aboutDescription: {
       type: DataTypes.TEXT
+    },
+    UniversityId: {
+      type: DataTypes.INTEGER
     }
   },
   {

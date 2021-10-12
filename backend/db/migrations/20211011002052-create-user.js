@@ -25,6 +25,10 @@ module.exports = {
       aboutDescription:{
         type: Sequelize.TEXT,
       },
+      universityId:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
