@@ -33,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     aboutDescription: {
       type: DataTypes.TEXT
     },
-    UniversityId: {
-      type: DataTypes.INTEGER
+    universityName: {
+      type: DataTypes.STRING(100)
     }
   },
   {
