@@ -1,17 +1,30 @@
 const LOAD = `events/LOAD`;
-
+const LOAD_ONE = `events/LOAD_ONE`
 
 const load = list => ({
     type: LOAD,
-    list,
+    list
 });
+
+const loadOne = event => ({
+    type: LOAD_ONE,
+    event
+})
 
 export const getEvents = () => async dispatch => {
     const response = await fetch (`/api/events`);
 
     if (response.ok) {
         const list = await response.json();
-            dispatch(load(list));
+        dispatch(load(list));
+    }
+}
+
+export const getEvent = (id) => async dispatch => {
+    const response = await fetch (`/api/events/${id}`);
+    if (response.ok){
+        const event = await response.json();
+        dispatch(loadOne(event));
     }
 }
 
@@ -28,6 +41,12 @@ const eventReducer = (state = {}, action) => {
                 ...state,
                 list: action.list
             };
+        }
+        case LOAD_ONE: {
+
+            if (!state[action.event.id]) {
+
+            }
         }
     }
 }
