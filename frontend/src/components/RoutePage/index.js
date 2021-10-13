@@ -59,7 +59,7 @@ function RoutePage() {
                         <div className="event">{event.eventName}</div>
                     ))}
                     {events.map((event) => (
-                        <div className="event">{event.eventName}</div>
+                        <div className="event">{event.nameOfEvent}</div>
                     ))}
                 </div>
 

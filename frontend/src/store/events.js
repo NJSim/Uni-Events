@@ -47,11 +47,11 @@ const eventReducer = (state = initialState, action) => {
             };
         }
         case LOAD_ONE: {
-
             if (!state[action.event.id]) {
-
             }
         }
+        default:
+        return state;
     }
 }
 
