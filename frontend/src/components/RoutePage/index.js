@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getEvents } from '../../store/events';
 // import { useSelector } from 'react-redux';
 
 import './RoutePage.css';
 
 function RoutePage() {
-    // const sessionUser =
 
 
     const data= [
@@ -13,6 +14,19 @@ function RoutePage() {
         { id: 2, eventName: "Christmas Bash!"},
         { id: 3, eventName: "Party at my house"}
     ]
+
+    const events = useSelector(state => {
+        return state.events.list.map(id => state.events[id]);
+    })
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getEvents());
+    },[]);
+    if (!events) {
+        return null;
+    }
+
     const categories= [
         { id: 1, categoryName: "Rave"},
         { id: 2, categoryName: "Party"},
@@ -42,6 +56,9 @@ function RoutePage() {
                 </div>
                 <div className='event-wrapper'>
                     {data.map((event) => (
+                        <div className="event">{event.eventName}</div>
+                    ))}
+                    {events.map((event) => (
                         <div className="event">{event.eventName}</div>
                     ))}
                 </div>
