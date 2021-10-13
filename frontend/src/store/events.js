@@ -13,6 +13,7 @@ const loadOne = event => ({
 
 export const getEvents = () => async dispatch => {
     const response = await fetch (`/api/events`);
+    console.log(response);
 
     if (response.ok) {
         const list = await response.json();
@@ -28,8 +29,11 @@ export const getEvent = (id) => async dispatch => {
     }
 }
 
+const initialState = {
+    list: []
+};
 
-const eventReducer = (state = {}, action) => {
+const eventReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
             const allEvents= {};
