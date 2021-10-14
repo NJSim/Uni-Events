@@ -1,6 +1,5 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
-// const { db } = require('../../config');
 const { Event } = require('../../db/models');
 
 const router = express.Router();
@@ -13,7 +12,7 @@ router.get("/", asyncHandler(async (req, res, next) => {
 }))
 
 router.get("/:id", asyncHandler(async function(req, res){
-    const event = await Event.findByPk(id);
+    const event = await Event.findByPk(req.params.id);
     return res.json(event);
 }))
 

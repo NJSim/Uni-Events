@@ -24,7 +24,7 @@ function App() {
           <Route exact path='/'>
             <RoutePage />
           </Route>
-          <Route path='/events/:eventId'>
+          <Route path='/event/:eventId'>
             <Event />
           </Route>
           <Route path="/login">

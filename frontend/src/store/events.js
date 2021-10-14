@@ -13,10 +13,10 @@ const loadOne = event => ({
 
 export const getEvents = () => async dispatch => {
     const response = await fetch (`/api/events`);
-    console.log(response);
 
     if (response.ok) {
         const list = await response.json();
+        //console.log(list);
         dispatch(load(list));
     }
 }
@@ -30,7 +30,6 @@ export const getEvent = (id) => async dispatch => {
 }
 
 const initialState = {
-    list: []
 };
 
 const eventReducer = (state = initialState, action) => {
@@ -42,16 +41,16 @@ const eventReducer = (state = initialState, action) => {
             });
             return {
                 ...allEvents,
-                ...state,
-                list: action.list
+                ...state
             };
         }
         case LOAD_ONE: {
             if (!state[action.event.id]) {
             }
+            break;
         }
         default:
-        return state;
+            return state;
     }
 }
 

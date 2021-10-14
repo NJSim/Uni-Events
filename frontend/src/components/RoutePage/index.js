@@ -2,38 +2,44 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents } from '../../store/events';
+import { NavLink } from 'react-router-dom';
+
 // import { useSelector } from 'react-redux';
 
 import './RoutePage.css';
+import { getCategories } from '../../store/categories';
 
 function RoutePage() {
 
-
-    const data= [
-        { id: 1, eventName: "Halloween Party!"},
-        { id: 2, eventName: "Christmas Bash!"},
-        { id: 3, eventName: "Party at my house"}
-    ]
+    const sessionUser = useSelector(state => state.session.user);
 
     const events = useSelector(state => {
-        return state.events.list.map(id => state.events[id]);
+        //only gets the value of the number id - the keys
+        return Object.values(state.events)
+    })
+
+    const categories = useSelector(state => {
+        console.log(Object.values(state.categories))
+        return Object.values(state.categories);
     })
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getEvents());
+        dispatch(getCategories());
     },[]);
+
     if (!events) {
         return null;
     }
 
-    const categories= [
-        { id: 1, categoryName: "Rave"},
-        { id: 2, categoryName: "Party"},
-        { id: 3, categoryName: "Student Groups"},
-        { id: 4, categoryName: "AAPI events"}
 
-    ]
+    if (!categories) {
+        return null;
+    }
+
+
+    console.log('events console', events);
 
 
     return (
@@ -47,7 +53,7 @@ function RoutePage() {
 
             <div className='mainEventBody'>
                 <div className='universityName-header'>
-                    University Here
+                    Hello, {sessionUser.universityName} Student!
                 </div>
                 <div className='categories-nav'>
                 {categories.map((category) => (
@@ -55,11 +61,11 @@ function RoutePage() {
                     ))}
                 </div>
                 <div className='event-wrapper'>
-                    {data.map((event) => (
+                    {/* {data.map((event) => (
                         <div className="event">{event.eventName}</div>
-                    ))}
+                    ))} */}
                     {events.map((event) => (
-                        <div className="event">{event.nameOfEvent}</div>
+                        <NavLink key={event.id} to={`/event/${event.id}`} className="event">{event?.nameOfEvent}</NavLink>
                     ))}
                 </div>
 

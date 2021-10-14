@@ -32,6 +32,9 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Events');
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Events', {
+      nameOfEvent: { [Op.in]: ['Halloween Party @ UW!', 'Halloween Party @ UO!', 'Halloween Party @ UC!'] }
+    }, {});
   }
 };

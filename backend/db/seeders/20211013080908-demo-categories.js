@@ -28,6 +28,9 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Categories');
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Categories', {
+      categoryName: { [Op.in]: ['Online', 'Free', 'Music', 'Dance', 'Food & Drink', 'Charity', 'Outdoors'] }
+    }, {});
   }
 };
