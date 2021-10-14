@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 const LOAD = `events/LOAD`;
 const LOAD_ONE = `events/LOAD_ONE`
 
@@ -12,7 +14,7 @@ const loadOne = event => ({
 })
 
 export const getEvents = () => async dispatch => {
-    const response = await fetch (`/api/events`);
+    const response = await csrfFetch (`/api/events`);
 
     if (response.ok) {
         const list = await response.json();
@@ -22,7 +24,7 @@ export const getEvents = () => async dispatch => {
 }
 
 export const getEvent = (id) => async dispatch => {
-    const response = await fetch (`/api/events/${id}`);
+    const response = await csrfFetch (`/api/events/${id}`);
     if (response.ok){
         const event = await response.json();
         dispatch(loadOne(event));
@@ -45,11 +47,18 @@ const eventReducer = (state = initialState, action) => {
             };
         }
         case LOAD_ONE: {
-            const newState = {
-                ...state,
-                [action.event.id]: action.event
-            };
-            return newState;
+            // const newState = {
+            //     ...state,
+            //     [action.event.id]: action.event
+            // };
+            // return newState;
+            const eventObj = {};
+            eventObj[action.event.id] = action.event;
+            return {
+                ...eventObj,
+                ...state
+            }
+
         }
         default:
             return state;

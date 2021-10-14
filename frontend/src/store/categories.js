@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 const LOAD = `categories/LOAD`;
 
 const load = list => ({
@@ -6,7 +8,7 @@ const load = list => ({
 });
 
 export const getCategories = () => async dispatch => {
-    const response = await fetch (`/api/categories`);
+    const response = await csrfFetch(`/api/categories`);
 
     if (response.ok) {
         const list = await response.json();
