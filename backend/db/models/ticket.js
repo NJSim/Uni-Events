@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     numberOfTickets: DataTypes.INTEGER
   }, {});
   Ticket.associate = function(models) {
-    // associations can be defined here
+    Ticket.belongsTo(models.User, { foreignKey: 'userId'})
+    Ticket.belongsTo(models.Event, { foreignKey: 'eventId'})
   };
   return Ticket;
 };

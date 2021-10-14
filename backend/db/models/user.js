@@ -53,7 +53,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Ticket, {foreignKey: 'userId', onDelete:'CASCADE', hooks:true });
+
   };
 
   //return an object with only the User instance info that is safe to save to a JWT

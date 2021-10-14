@@ -20,7 +20,8 @@ function Event() {
 
     const handleRegisterClick = (e) => {
         e.preventDefault();
-        //have post request 
+        
+
     }
     // const events = useSelector(state => {
     //     //only gets the value of the number id - the keys

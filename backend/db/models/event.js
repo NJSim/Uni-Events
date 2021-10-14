@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     currentTicketCount: DataTypes.INTEGER
   }, {});
   Event.associate = function(models) {
-    // associations can be defined here
+    Event.hasMany(models.Ticket, {foreignKey: 'eventId', onDelete:'CASCADE', hooks:true });
   };
   return Event;
 };
