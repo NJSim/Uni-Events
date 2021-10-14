@@ -35,7 +35,7 @@ const initialState = {
 const eventReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
-            const allEvents= {};
+            const allEvents = {};
             action.list.forEach(event => {
                 allEvents[event.id] = event;
             });
@@ -45,9 +45,11 @@ const eventReducer = (state = initialState, action) => {
             };
         }
         case LOAD_ONE: {
-            if (!state[action.event.id]) {
-            }
-            break;
+            const newState = {
+                ...state,
+                [action.event.id]: action.event
+            };
+            return newState;
         }
         default:
             return state;
