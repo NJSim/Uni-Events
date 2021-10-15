@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get("/", asyncHandler(async (req, res, next) => {
     const categories = await Category.findAll()
-    console.log(categories);
     return res.json(categories);
 }))
 

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 
 import { useParams } from "react-router";
-import { getEvent } from '../../store/events';
+import { getEvent, registerForEvent } from '../../store/events';
 import './Event.css';
 
 
@@ -16,11 +16,12 @@ function Event() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getEvent(eventId));
-    },[eventId])
+    },[eventId, dispatch])
 
     const handleRegisterClick = (e) => {
         e.preventDefault();
-        
+        dispatch(registerForEvent(eventId));
+
 
     }
     // const events = useSelector(state => {

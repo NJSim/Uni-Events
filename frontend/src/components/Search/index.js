@@ -1,8 +1,22 @@
 import './search.css';
 
-function Search() {
+function Search({ searchQuery, setSearchQuery }) {
+
     return (
-        <input placeholder={"Search events"} />
+        <form action="/" method="get">
+        <label htmlFor="header-search">
+            <span className="visually-hidden">Search Events</span>
+        </label>
+        <input
+            value={searchQuery}
+            onInput={e => setSearchQuery(e.target.value)}
+            type="text"
+            id="header-search"
+            placeholder="Search Events"
+            name="s"
+        />
+
+    </form>
     )
 }
 

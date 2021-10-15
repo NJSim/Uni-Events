@@ -1,5 +1,5 @@
 // frontend/src/components/Navigation/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -8,6 +8,26 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+
+
+  const events = useSelector(state => {
+    //only gets the value of the number id - the keys
+    return Object.values(state.events)
+  })
+
+  const filterEvents = (events, query) => {
+    if (!query) {
+      return [];
+    }
+
+    return events.filter((event) => {
+      const eventName = event.nameOfEvent.toLowerCase();
+      return eventName.includes(query.toLowerCase());
+    });
+  };
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const filteredEvents = filterEvents(events, searchQuery);
 
   let sessionLinks;
   if (sessionUser) {
@@ -27,7 +47,15 @@ function Navigation({ isLoaded }){
     <ul>
       <li className="nav-bar-container">
         <NavLink className="nav-bar logo" exact to="/">Uni-Events</NavLink>
-        <Search />
+        <Search
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            />
+            <ul>
+                {filteredEvents.map(event => (
+                    <li key={event.id}>{event.nameOfEvent}</li>
+                ))}
+            </ul>
         <NavLink className="about-nav-bar nav-bar" to="/about-us"> About </NavLink>
         {isLoaded && sessionLinks}
       </li>

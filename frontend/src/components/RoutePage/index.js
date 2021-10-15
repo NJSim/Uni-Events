@@ -18,8 +18,11 @@ function RoutePage() {
         return Object.values(state.events)
     })
 
+    // const search = useSelector(state => {
+    //     return Object.values(state.search);
+    // })
+
     const categories = useSelector(state => {
-        console.log(Object.values(state.categories))
         return Object.values(state.categories);
     })
 
@@ -27,7 +30,11 @@ function RoutePage() {
     useEffect(() => {
         dispatch(getEvents());
         dispatch(getCategories());
-    },[]);
+    },[dispatch]);
+
+    // useEffect(() => {
+    //     dispatch(getSearch());
+    // },[dispatch])
 
     if (!events) {
         return null;
@@ -37,9 +44,6 @@ function RoutePage() {
     if (!categories) {
         return null;
     }
-
-
-    console.log('events console', events);
 
 
     return (
@@ -57,7 +61,7 @@ function RoutePage() {
                 </div>
                 <div className='categories-nav'>
                 {categories.map((category) => (
-                        <div className="category">{category.categoryName}</div>
+                        <div key={category.id} className="category">{category.categoryName}</div>
                     ))}
                 </div>
                 <div className='event-wrapper'>
