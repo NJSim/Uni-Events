@@ -31,7 +31,7 @@ router.get("/:id", asyncHandler(async function(req, res){
 
 router.get("/:id/tickets", asyncHandler(async function(req, res){
     const userId = res.locals.user.id;
-    const eventId = parseInt(req.params.id, 10);
+    const eventId = req.params.id;
 
     const alreadyRegistered = await db.Ticket.findOne({
         where: {userId: userId, eventId: eventId}

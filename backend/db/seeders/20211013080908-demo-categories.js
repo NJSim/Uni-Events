@@ -31,6 +31,10 @@ module.exports = {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Categories', {
       categoryName: { [Op.in]: ['Online', 'Free', 'Music', 'Dance', 'Food & Drink', 'Charity', 'Outdoors'] }
-    }, {});
+    }, {
+      truncate: true,
+      cascade: true,
+      restartIdentity: true
+    });
   }
 };

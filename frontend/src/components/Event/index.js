@@ -13,10 +13,15 @@ function Event() {
     const sessionUser = useSelector(state => state.session.user);
     const event = useSelector(state => state.events[eventId])
 
+    // const [registered, setRegistered] = useState(0); //use this for when counting registered ppl for event
+
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getEvent(eventId));
     },[eventId, dispatch])
+
+
 
     const handleRegisterClick = (e) => {
         e.preventDefault();
@@ -24,15 +29,6 @@ function Event() {
 
 
     }
-    // const events = useSelector(state => {
-    //     //only gets the value of the number id - the keys
-    //     return Object.values(state.events)
-    // })
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getEvents());
-
-    // },[]);
 
     //TODO get event by id using params id and then use that to populate
 
@@ -42,6 +38,7 @@ function Event() {
             EVENT TEST {sessionUser.universityName}
             EVENT DESC {event?.description}
             <button type="button" onClick={handleRegisterClick}>Register</button>
+            <div></div>
         </div>
     )
 }
