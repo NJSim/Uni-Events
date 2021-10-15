@@ -38,8 +38,10 @@ export const getEvent = (id) => async dispatch => {
 
 export const registerForEvent = (id) => async dispatch => {
     const response = await csrfFetch (`/api/events/${id}/tickets`);
+
     if (response.ok){
         const registeredList = await response.json();
+        console.log(registeredList);
         dispatch(loadRegistered(registeredList));
     }
 }

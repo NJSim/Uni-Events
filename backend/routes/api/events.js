@@ -2,6 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 const db = require('../../db/models');
 const { Event, Sequelize } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth.js');
 
 const router = express.Router();
 
@@ -29,8 +30,8 @@ router.get("/:id", asyncHandler(async function(req, res){
     return res.json(event);
 }))
 
-router.get("/:id/tickets", asyncHandler(async function(req, res){
-    const userId = res.locals.user.id;
+router.get("/:id/tickets", requireAuth ,asyncHandler(async function(req, res){
+    const userId = req.user.id;
     const eventId = parseInt(req.params.id, 10);
     console.log('USER id here', userId);
     console.log('EVENT id here', eventId);
@@ -52,7 +53,7 @@ router.get("/:id/tickets", asyncHandler(async function(req, res){
         where: { eventId: eventId }
     });
 
-    res.json({ registerArray });
+    res.json(registerArray);
 
 }))
 
