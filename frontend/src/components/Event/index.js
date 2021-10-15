@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
+import { NavLink } from 'react-router-dom';
 
 
 import { useParams } from "react-router";
@@ -35,13 +36,26 @@ function Event() {
     // },[]);
 
     //TODO get event by id using params id and then use that to populate
+    let registerCheck;
+    if (sessionUser) {
+        registerCheck = (
+            <button type="button" onClick={handleRegisterClick}>Register</button>
+        );
+    } else {
+        registerCheck = (
+            <>
+                <NavLink className="nav-bar" to="/login">Log In</NavLink>
+                <NavLink className="nav-bar" to="/signup">Sign Up</NavLink>
+            </>
+        )
+    }
 
     return (
         //TODO need to make a nice layout with a button that allows a person to register (next MVP)
         <div className='individual-event'>
-            EVENT TEST {sessionUser.universityName}
+            EVENT TEST {sessionUser?.universityName}
             EVENT DESC {event?.description}
-            <button type="button" onClick={handleRegisterClick}>Register</button>
+            {registerCheck}
         </div>
     )
 }
