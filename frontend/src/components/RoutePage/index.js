@@ -57,7 +57,7 @@ function RoutePage() {
 
             <div className='mainEventBody'>
                 <div className='universityName-header'>
-                    Hello, {sessionUser.universityName} Student!
+                    Hello, {sessionUser?.universityName} Student!
                 </div>
                 <div className='categories-nav'>
                 {categories.map((category) => (

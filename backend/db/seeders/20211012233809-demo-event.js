@@ -28,13 +28,25 @@ module.exports = {
         price: 0,
         currentTicketCount: 0
       },
+      {
+        universityName: 'University of Idaho',
+        nameOfEvent: 'Dance Time',
+        maxCapacity: 500,
+        description: 'Dance time test description here multiple words blah blah blah blah University of Idaho',
+        price: 0,
+        currentTicketCount: 0
+      },
     ], {});
   },
 
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Events', {
-      nameOfEvent: { [Op.in]: ['Halloween Party @ UW!', 'Halloween Party @ UO!', 'Halloween Party @ UC!'] }
-    }, {});
+      nameOfEvent: { [Op.in]: ['Halloween Party @ UW!', 'Halloween Party @ UO!', 'Halloween Party @ UC!', 'Dance Time'] }
+    }, {
+      truncate: true,
+      cascade: true,
+      restartIdentity: true
+    });
   }
 };
