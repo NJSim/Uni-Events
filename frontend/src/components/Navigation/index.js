@@ -32,7 +32,7 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ProfileButton className="nav-bar" user={sessionUser} />
     );
   } else {
     sessionLinks = (
@@ -47,7 +47,7 @@ function Navigation({ isLoaded }){
     <ul>
       <li className="nav-bar-container">
         <NavLink className="nav-bar logo" exact to="/">Uni-Events</NavLink>
-        <Search
+        <Search className='nav-bar search-bar'
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />

@@ -6,4 +6,9 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+
 };
+
+.search {
+    background-color:blue;
+}

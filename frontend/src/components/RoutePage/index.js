@@ -60,7 +60,7 @@ function RoutePage() {
                     Hello, {sessionUser?.universityName} Student!
                 </div>
                 <div className='categories-nav'>
-                {categories.map((category) => (
+                    {categories.map((category) => (
                         <div key={category.id} className="category">{category.categoryName}</div>
                     ))}
                 </div>
@@ -69,7 +69,11 @@ function RoutePage() {
                         <div className="event">{event.eventName}</div>
                     ))} */}
                     {events.map((event) => (
-                        <NavLink key={event.id} to={`/event/${event.id}`} className="event">{event?.nameOfEvent}</NavLink>
+                        <div className="event-box">
+                            <NavLink key={event.id} to={`/event/${event.id}`} className="event">{event?.nameOfEvent}</NavLink>
+                            <div>{event?.description}</div>
+                        </div>
+
                     ))}
                 </div>
 

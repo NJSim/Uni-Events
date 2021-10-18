@@ -39,7 +39,7 @@ function Event() {
     let registerCheck;
     if (sessionUser) {
         registerCheck = (
-            <button type="button" onClick={handleRegisterClick}>Register</button>
+            <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
         );
     } else {
         registerCheck = (
@@ -53,10 +53,30 @@ function Event() {
     return (
         //TODO need to make a nice layout with a button that allows a person to register (next MVP)
         <div className='individual-event'>
-            EVENT TEST {sessionUser?.universityName}
-            EVENT DESC {event?.description}
-            {registerCheck}
+            <div className='event-university'>
+            {sessionUser?.universityName}
+            </div>
+            <div className='event-wrapper'>
+                <div className='event-title'>
+                {event?.nameOfEvent}
+                </div>
+                <div className='event-desc'>
+                {event?.description}
+                </div>
+                <div className='button-wrapper'>
+
+                    {registerCheck}
+                    <div className='disclaimer'>
+                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     )
 }
 

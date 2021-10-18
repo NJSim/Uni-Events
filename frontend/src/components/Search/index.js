@@ -8,8 +8,10 @@ function Search({ searchQuery, setSearchQuery }) {
             <span className="visually-hidden">Search Events</span>
         </label>
         <input
+            className="search"
             value={searchQuery}
             onInput={e => setSearchQuery(e.target.value)}
+
             type="text"
             id="header-search"
             placeholder="Search Events"
