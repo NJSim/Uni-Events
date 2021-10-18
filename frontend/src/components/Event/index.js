@@ -46,10 +46,18 @@ function Event() {
         if (isRegistered) {
             registerCheck = (
                 <button className='event-button' type="button" onClick={handleRegisterClick}>Unregister</button>
+                <div className='disclaimer'>
+                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
+
+                </div>
             );
         } else {
             registerCheck = (
                 <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
+                <div className='disclaimer'>
+                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
+
+                </div>
             );
 
         }
@@ -78,10 +86,6 @@ function Event() {
                 <div className='button-wrapper'>
 
                     {registerCheck}
-                    <div className='disclaimer'>
-                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
-
-                    </div>
 
                 </div>
 
