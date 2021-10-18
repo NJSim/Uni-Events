@@ -66,9 +66,9 @@ function Event() {
         //TODO need to make a nice layout with a button that allows a person to register (next MVP)
         <div className='individual-event'>
             <div className='event-university'>
-            {sessionUser?.universityName}
+            {event?.universityName}
             </div>
-            <div className='event-wrapper'>
+            <div className='event-details'>
                 <div className='event-title'>
                 {event?.nameOfEvent}
                 </div>
