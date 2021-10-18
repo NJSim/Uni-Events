@@ -31,3 +31,19 @@
     background-color: #04AA6D;
     color: white;
 }
+
+.searchResults {
+
+    
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.results {
+    text-decoration: none;
+}
+
+.results:hover {
+    text-decoration: underline;
+}

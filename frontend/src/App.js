@@ -8,6 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import RoutePage from "./components/RoutePage";
 import Event from "./components/Event";
+import About from "./components/About"
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/about-us">
+            <About></About>
           </Route>
         </Switch>
       )}

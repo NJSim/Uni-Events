@@ -90,12 +90,14 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   //creates a user by receiving input- hashing password and then returning the User object.
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ username, email, password, about, university }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
       hashedPassword,
+      about,
+      university
     });
     return await User.scope('currentUser').findByPk(user.id);
   };

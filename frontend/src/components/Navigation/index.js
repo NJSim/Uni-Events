@@ -47,15 +47,15 @@ function Navigation({ isLoaded }){
     <ul>
       <li className="nav-bar-container">
         <NavLink className="nav-bar logo" exact to="/">Uni-Events</NavLink>
+        <nav className='searchResults'>
         <Search className='nav-bar search-bar'
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
-            <ul>
                 {filteredEvents.map(event => (
-                    <li key={event.id}>{event.nameOfEvent}</li>
+                    <NavLink key={event.id} to={`/event/${event.id}`} className='results'>{event?.nameOfEvent}</NavLink>
                 ))}
-            </ul>
+            </nav>
         <NavLink className="about-nav-bar nav-bar" to="/about-us"> About </NavLink>
         {isLoaded && sessionLinks}
       </li>

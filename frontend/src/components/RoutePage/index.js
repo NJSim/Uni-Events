@@ -65,9 +65,7 @@ function RoutePage() {
                     ))}
                 </div>
                 <div className='event-wrapper'>
-                    {/* {data.map((event) => (
-                        <div className="event">{event.eventName}</div>
-                    ))} */}
+                    
                     {events.map((event) => (
                         <div className="event-box">
                             <NavLink key={event.id} to={`/event/${event.id}`} className="event">{event?.nameOfEvent}</NavLink>

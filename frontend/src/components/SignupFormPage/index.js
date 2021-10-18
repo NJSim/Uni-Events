@@ -12,6 +12,8 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [about, setAbout] = useState("");
+  const [university, setUniversity] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -20,7 +22,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ email, username, password, about, university }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -70,6 +72,22 @@ function SignupFormPage() {
           required
         />
       </label>
+      <label>
+        About you Description
+        <input
+        type="text"
+        value={about}
+        onChange={(e) => setAbout(e.target.value)}
+        />
+      </label>
+      <label htmlFor='uni'>Choose your University</label>
+        <select name='uni' id='universityName'
+        value={university}
+        onChange={(e) => setUniversity(e.target.value)}>
+          <option value='University of Washington'>University of Washington</option>
+          <option value='University of Oregon'>University of Oregon</option>
+          <option value='University of California'>University of California</option>
+        </select>
       <button type="submit">Sign Up</button>
     </form>
   );
