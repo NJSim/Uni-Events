@@ -16,7 +16,7 @@ function Event() {
     const event = useSelector(state => state.events[eventId]);
     const isRegistered = useSelector(state => state.isRegistered[eventId]);
 
-    console.log(isRegistered);
+    //console.log(isRegistered);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -45,7 +45,7 @@ function Event() {
     if (sessionUser) {
         if (isRegistered) {
             registerCheck = (
-                <div>
+                <div className='register-check'>
                     <button className='event-button' type="button" onClick={handleRegisterClick}>Unregister</button>
                     <div className='disclaimer'>
                             By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
@@ -55,7 +55,7 @@ function Event() {
             );
         } else {
             registerCheck = (
-                <div>
+                <div className='register-check'>
                     <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
                     <div className='disclaimer'>
                             By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events

@@ -24,12 +24,14 @@
 }
 
 .event-button {
-    text-align: center;
+
     font-weight: 600;
     color: #FFF;
     background-color: #0D8547;
     position: relative;
     height: 44px;
+    width: 150px;
+
     border: 2px solid transparent;
     padding: 0 30px;
     box-sizing: border-box;
@@ -42,4 +44,12 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.register-check {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
 }

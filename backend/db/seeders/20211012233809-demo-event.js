@@ -16,7 +16,7 @@ module.exports = {
         universityName: 'University of Washington',
         nameOfEvent: 'Dance Time',
         maxCapacity: 500,
-        description: 'Dance time test description here multiple words blah blah blah blah University of Idaho',
+        description: 'Dance time at the University of Washington - Dance your heart away at our newly built gazebo, donations appreciated!',
         price: 0,
         currentTicketCount: 0
       },
