@@ -45,23 +45,23 @@ function Event() {
     if (sessionUser) {
         if (isRegistered) {
             registerCheck = (
-                <>
-                <button className='event-button' type="button" onClick={handleRegisterClick}>Unregister</button>
-                <div className='disclaimer'>
-                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
+                <div>
+                    <button className='event-button' type="button" onClick={handleRegisterClick}>Unregister</button>
+                    <div className='disclaimer'>
+                            By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
 
+                    </div>
                 </div>
-                <>
             );
         } else {
             registerCheck = (
-                <>
-                <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
-                <div className='disclaimer'>
-                        By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
+                <div>
+                    <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
+                    <div className='disclaimer'>
+                            By clicking register, you acknowledge to all terms and conditions that apply to your universtiy and Uni-Events
 
+                    </div>
                 </div>
-                <>
             );
 
         }
