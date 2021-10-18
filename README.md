@@ -5,5 +5,6 @@ brought to you by these Universities.
 
 Sign up today to be able to register for your favorite events!
 
-Join us today at the link below:
+Join us today at this link:
 https://uni-events1.herokuapp.com/
+
