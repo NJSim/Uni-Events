@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
@@ -15,12 +15,13 @@ function Event() {
     const sessionUser = useSelector(state => state.session.user);
     const event = useSelector(state => state.events[eventId]);
     const isRegistered = useSelector(state => state.isRegistered[eventId]);
-    
 
+    console.log(isRegistered);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getEvent(eventId));
+
     },[eventId, dispatch])
 
     const handleRegisterClick = (e) => {
