@@ -21,6 +21,9 @@ Looking for a certain event? You can type in the search bar above and it will re
 ## Want to run this site locally?:
 
 There contains 2 main folders - backend + frontend. These folders require an ( npm install ) to start.
+
 Open 2 consoles in authenticate-me/backend and authenticate-me/frontend 
+
 Type in: npm start
+
 make sure to npm start on both consoles in order to view it on localhost:3000 on your localhost browser.
