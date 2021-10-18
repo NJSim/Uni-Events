@@ -1,7 +1,10 @@
 .login-form {
     display: flex;
     margin: 0 auto;
-    padding: 200px;
+    padding-top: 200px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 20px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -28,4 +31,8 @@
     padding-left: 25px;
     display: flex;
     gap: 38px;
+}
+
+.demo-user {
+    text-align: center;
 }

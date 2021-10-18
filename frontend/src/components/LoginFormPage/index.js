@@ -26,7 +26,21 @@ function LoginFormPage() {
       });
   }
 
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    setCredential('demo@user.io');
+    setPassword('password');
+
+    // return dispatch(sessionActions.login({ credential, password }))
+    //   .catch(async (res) => {
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors);
+    //   });
+  }
+
   return (
+  <div>
+
     <form className='login-form' onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -54,6 +68,10 @@ function LoginFormPage() {
         <button type="submit">Log In</button>
         </div>
     </form>
+    <form className='demo-user' onSubmit={demoSubmit}>
+      <button type="submit">Use Demo user credentials</button>
+    </form>
+  </div>
   );
 }
 
