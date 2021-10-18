@@ -33,6 +33,7 @@ router.get("/:id", asyncHandler(async function(req, res){
 router.get("/:id/tickets", requireAuth ,asyncHandler(async function(req, res){
     const userId = req.user.id;
     const eventId = parseInt(req.params.id, 10);
+    //console log in backend terminal
     console.log('USER id here', userId);
     console.log('EVENT id here', eventId);
 
@@ -42,6 +43,7 @@ router.get("/:id/tickets", requireAuth ,asyncHandler(async function(req, res){
 
     if (alreadyRegistered) {
         await alreadyRegistered.destroy();
+        console.log("DESTROYED TEST ON TICKET");
     } else {
         const register = db.Ticket.build({
             userId: userId,
@@ -56,5 +58,6 @@ router.get("/:id/tickets", requireAuth ,asyncHandler(async function(req, res){
     res.json(registerArray);
 
 }))
+
 
 module.exports = router;

@@ -1,18 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
 
 import { useParams } from "react-router";
-import { getEvent, registerForEvent } from '../../store/events';
+import { getEvent } from '../../store/events';
+import { registerForEvent } from '../../store/isRegistered';
 import './Event.css';
 
 
 function Event() {
     const { eventId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const event = useSelector(state => state.events[eventId])
+    const event = useSelector(state => state.events[eventId]);
+    const isRegistered = useSelector(state => state.isRegistered[eventId]);
+    
+
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -21,8 +25,8 @@ function Event() {
 
     const handleRegisterClick = (e) => {
         e.preventDefault();
-        dispatch(registerForEvent(eventId));
 
+        dispatch(registerForEvent(eventId));
 
     }
     // const events = useSelector(state => {
@@ -38,9 +42,16 @@ function Event() {
     //TODO get event by id using params id and then use that to populate
     let registerCheck;
     if (sessionUser) {
-        registerCheck = (
-            <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
-        );
+        if (isRegistered) {
+            registerCheck = (
+                <button className='event-button' type="button" onClick={handleRegisterClick}>Unregister</button>
+            );
+        } else {
+            registerCheck = (
+                <button className='event-button' type="button" onClick={handleRegisterClick}>Register</button>
+            );
+
+        }
     } else {
         registerCheck = (
             <>
