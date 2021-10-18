@@ -8,7 +8,7 @@ Sign up today to be able to register for your favorite events!
 Join us today at this link:
 https://uni-events1.herokuapp.com/
 
-**How to Maneuver the site:
+* How to Maneuver the site:
 
 Sign-up: Click the sign up button at the top right and you'll be redirected to a page where you can sign up with your credentials!
 
