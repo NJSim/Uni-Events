@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <div class='dropdown'>
+    <div className='dropdown'>
       <button className='profile-button' onClick={openMenu}>
         <i className="fas fa-user-cog" />
       </button>
