@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 import { useParams } from "react-router";
 import { getEvent } from '../../store/events';
-import { registerForEvent } from '../../store/isRegistered';
+import { registerForEvent, ticketsForEvents } from '../../store/isRegistered';
 import './Event.css';
 
 
@@ -21,8 +21,16 @@ function Event() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getEvent(eventId));
+        dispatch(ticketsForEvents())
+        console.log("test")
+
 
     },[eventId, dispatch])
+
+    // useEffect(() => {
+    //     dispatch(ticketsForEvents())
+    //     console.log('test2')
+    // },[])
 
     const handleRegisterClick = (e) => {
         e.preventDefault();
@@ -43,6 +51,7 @@ function Event() {
     //TODO get event by id using params id and then use that to populate
     let registerCheck;
     if (sessionUser) {
+
         if (isRegistered) {
             registerCheck = (
                 <div className='register-check'>

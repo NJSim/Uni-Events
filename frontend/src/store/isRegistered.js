@@ -11,6 +11,15 @@ export const registerForEvent = (id) => async dispatch => {
     const response = await csrfFetch (`/api/events/${id}/tickets`);
     if (response.ok){
         const registeredList = await response.json();
+        //console.log('TESTETSTEST%^%%%%%%%%%%',registeredList);
+        dispatch(load(registeredList));
+    }
+}
+export const ticketsForEvents = (id) => async dispatch => {
+    const response = await csrfFetch (`/api/events/${id}/getTickets`);
+    if (response.ok){
+        const registeredList = await response.json();
+        console.log(registeredList)
         dispatch(load(registeredList));
     }
 }

@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import RoutePage from "./components/RoutePage";
 import Event from "./components/Event";
 import About from "./components/About"
+import MyEvents from "./components/MyEvents";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/about-us">
             <About></About>
+          </Route>
+          <Route path="/my-events">
+            <MyEvents />
           </Route>
         </Switch>
       )}

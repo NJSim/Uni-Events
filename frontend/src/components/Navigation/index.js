@@ -32,7 +32,11 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton className="nav-bar" user={sessionUser} />
+      <>
+        <NavLink className="about-nav-bar nav-bar" to="/my-events"> My Events </NavLink>
+        <ProfileButton className="nav-bar" user={sessionUser} />
+
+      </>
     );
   } else {
     sessionLinks = (

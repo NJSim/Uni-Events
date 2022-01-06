@@ -52,12 +52,26 @@ router.get("/:id/tickets", requireAuth ,asyncHandler(async function(req, res){
         await register.save();
     }
     const registerArray = await db.Ticket.findAll({
-        where: { eventId: eventId }
+        where: { userId: userId }
     });
 
     res.json(registerArray);
 
 }))
 
+router.get("/:id/getTickets", requireAuth ,asyncHandler(async function(req, res){
+    const userId = req.user.id;
+    const eventId = parseInt(req.params.id, 10);
+    //console log in backend terminal
+    // console.log('USER id here', userId);
+    // console.log('EVENT id here', eventId);
+
+    const registerArray = await db.Ticket.findAll({
+        where: { userId: userId }
+    });
+
+    res.json(registerArray);
+
+}))
 
 module.exports = router;
