@@ -28,14 +28,12 @@ function LoginFormPage() {
 
   const demoSubmit = (e) => {
     e.preventDefault();
-    setCredential('demo@user.io');
+    setCredential('demo@user.io')
     setPassword('password');
+    setTimeout(() => {console.log("test")}, 100);
 
-    // return dispatch(sessionActions.login({ credential, password }))
-    //   .catch(async (res) => {
-    //     const data = await res.json();
-    //     if (data && data.errors) setErrors(data.errors);
-    //   });
+    return dispatch(sessionActions.login({ credential, password }))
+
   }
 
   return (
@@ -68,9 +66,11 @@ function LoginFormPage() {
         <button type="submit">Log In</button>
         </div>
     </form>
-    <form className='demo-user' onSubmit={demoSubmit}>
-      <button type="submit">Use Demo user credentials</button>
-    </form>
+    <div className='demo-user'>
+      <button onMouseDown={demoSubmit}>Use Demo user credentials</button>
+
+    </div>
+
   </div>
   );
 }
